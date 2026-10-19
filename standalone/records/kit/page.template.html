@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Records</title>
+  <meta name="description" content="Connected tables, views and forms for your data, stored in your own Puter cloud." />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light dark" />
+  
+  <link rel="icon" href="@@icon:favicon.ico@@" sizes="16x16 32x32 48x48" />
+  <link rel="icon" href="@@icon:favicon-16x16.png@@" type="image/png" sizes="16x16" />
+  <link rel="icon" href="@@icon:favicon-32x32.png@@" type="image/png" sizes="32x32" />
+  <link rel="icon" href="@@icon:favicon-48x48.png@@" type="image/png" sizes="48x48" />
+  <link rel="apple-touch-icon" href="@@icon:apple-touch-icon.png@@" sizes="180x180" />
+  <script>
+    (() => {
+      let t = 'system';
+      try { t = localStorage.getItem('records:theme') || 'system'; } catch {}
+      const dark = t === 'dark' || (t === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.dataset.theme = t;
+      document.documentElement.dataset.themeResolved = dark ? 'dark' : 'light';
+    })();
+  </script>
+  
+  <script>
+const __SINGLEFILE_ASSETS__={};
+window.__singlefileMakeWorker = function (body) {
+  var prelude = 'const __PAGE_DIR=' + JSON.stringify(new URL('./', location.href).href) + ';\n' +
+    'const __SINGLEFILE_ASSETS__=' + JSON.stringify(__SINGLEFILE_ASSETS__) + ';\n' +
+    '(' + (function workerFetchShim() {
+  var __mimeOfUri = function (u) {
+    var m = /^data:([^;,]+)/.exec(u);
+    return (m && m[1]) || 'application/octet-stream';
+  };
+  var __toBlob = function (u) {
+    var b64 = u.split(',')[1] || '';
+    var bin = atob(b64);
+    var bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return new Blob([bytes], { type: __mimeOfUri(u) });
+  };
+  var __fetch0 = fetch.bind(self);
+  self.fetch = function (input, init) {
+    try {
+      var raw = typeof input === 'string' ? input : input.url;
+      var u = new URL(raw, __PAGE_DIR);
+      var hit = __SINGLEFILE_ASSETS__[u.href] || __SINGLEFILE_ASSETS__[u.origin + u.pathname] || __SINGLEFILE_ASSETS__[u.pathname];
+      if (hit) return Promise.resolve(new Response(__toBlob(hit), { status: 200, headers: { 'Content-Type': __mimeOfUri(hit) } }));
+    } catch (e) {}
+    return __fetch0(input, init);
+  };
+}) + ')();\n';
+  return URL.createObjectURL(new Blob([prelude + body], { type: 'text/javascript' }));
+};
+
+{
+const __MAP = {};
+for (const rel of Object.keys(__SINGLEFILE_ASSETS__)) {
+  try { __MAP[new URL(rel, document.baseURI).href] = __SINGLEFILE_ASSETS__[rel]; } catch {}
+}
+const __mimeOfUri = (u) => ((/^data:([^;,]+)/.exec(u) || [])[1] || 'application/octet-stream');
+const __toBlob = (u) => {
+  const b64 = u.split(',')[1] || '';
+  const bin = atob(b64);
+  const bytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  return new Blob([bytes], { type: __mimeOfUri(u) });
+};
+const __fetch0 = window.fetch.bind(window);
+window.fetch = function (input, init) {
+  try {
+    const raw = typeof input === 'string' ? input : input.url;
+    const u = new URL(raw, document.baseURI);
+    const hit = __MAP[u.href] || __MAP[u.origin + u.pathname] || __MAP[u.pathname];
+    if (hit) return Promise.resolve(new Response(__toBlob(hit), { status: 200, headers: { 'Content-Type': __mimeOfUri(hit) } }));
+  } catch {}
+  return __fetch0(input, init);
+};
+}
+</script>
+<script data-app="records">
+/* stand-in for the kit's generic sessionStorage mock (original text not available); stage 2 replaces this whole block. key: everything-mock:records */
+</script>
+<script data-sanitizer="puter-declutter">
+(function () {
+  'use strict';
+  var IDENTITIES = ["demo","demo@example.com"];
+
+  var GEAR_SVG = '<svg data-sanitize="gear" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>';
+
+  function isFakeIdentityText(t) {
+    var s = String(t == null ? '' : t).trim().toLowerCase();
+    if (!s || s.length > 120) return false;
+    if (IDENTITIES.indexOf(s) !== -1) return true;
+    if (/^(not signed in|signed in)\b/.test(s)) return true;
+    if (/[a-z0-9._%+-]+@example\.com\b/.test(s)) return true;
+    for (var i = 0; i < IDENTITIES.length; i++) {
+      var id = IDENTITIES[i];
+      if (id.indexOf('@') !== -1 && s.indexOf(id) !== -1) return true;
+    }
+    return false;
+  }
+
+  function cls(el) {
+    var c = el.className;
+    if (c == null) return '';
+    if (typeof c === 'string') return c;
+    if (c.baseVal !== undefined) return c.baseVal;
+    return '';
+  }
+
+  // An account/user menu button: labelled account/profile AND (avatar-ish
+  // class, a single initial letter, or a user/person glyph inside).
+  function isAccountButton(btn) {
+    if (!btn || btn.nodeName !== 'BUTTON') return false;
+    var label = ((btn.getAttribute('aria-label') || '') + ' ' + (btn.getAttribute('title') || '')).toLowerCase();
+    if (!/account|profile/.test(label)) return false;
+    if (/(^|\s)(avatar|avatar-btn|user-btn|user-avatar|account-btn)(\s|$)/.test(cls(btn))) return true;
+    var text = (btn.textContent || '').trim();
+    if (text.length <= 2) return true;
+    return /user|person|circle-user/.test((btn.innerHTML || '').toLowerCase());
+  }
+
+  function applyGear(btn) {
+    if (btn.__szObs) btn.__szObs.disconnect();
+    try {
+      btn.setAttribute('aria-label', 'Settings');
+      btn.setAttribute('title', 'Settings');
+      btn.innerHTML = GEAR_SVG;
+    } finally {
+      if (btn.__szObs) btn.__szObs.observe(btn, { childList: true, attributes: true, attributeFilter: ['aria-label', 'title'] });
+    }
+  }
+
+  function guardButton(btn) {
+    if (btn.__szGuarded) return;
+    btn.__szGuarded = true;
+    applyGear(btn);
+    // Apps re-render the button (profile-picture swaps, session refreshes);
+    // re-assert the gear when they do. If the node is detached, drop the
+    // guard — the document observer re-guards any replacement.
+    var obs = new MutationObserver(function () {
+      if (!btn.isConnected) { obs.disconnect(); btn.__szGuarded = false; btn.__szObs = null; return; }
+      var ok = !!btn.querySelector('svg[data-sanitize="gear"]');
+      var label = (btn.getAttribute('aria-label') || '').toLowerCase();
+      if (!ok || label !== 'settings') applyGear(btn);
+    });
+    btn.__szObs = obs;
+    obs.observe(btn, { childList: true, attributes: true, attributeFilter: ['aria-label', 'title'] });
+  }
+
+  var HEADER_SEL = '.popover__header,.menu-header,.account-header,.user-header,.profile-header,[class*="account-header"]';
+  var LOGO_SEL = 'header [class*="brand"] img,header [class*="app-mark"] img,header [class*="logo"] img,' +
+    '[role="banner"] [class*="brand"] img,[role="banner"] [class*="app-mark"] img,[role="banner"] [class*="logo"] img,' +
+    'header [class*="brand"] svg,header [class*="app-mark"] svg,header [class*="logo"] svg,' +
+    '[role="banner"] [class*="brand"] svg,[role="banner"] [class*="app-mark"] svg,[role="banner"] [class*="logo"] svg';
+  var POPOVER_SEL = '[role="dialog"][aria-label="Account and settings"],[role="menu"][aria-label="Account"],[role="dialog"][aria-label="Account"]';
+
+  function stripHeader(el) {
+    if (isFakeIdentityText(el.textContent)) el.remove();
+  }
+  function relabelPopover(el) {
+    el.setAttribute('aria-label', 'Settings');
+  }
+
+  function sanitizeTree(root) {
+    if (!root.querySelectorAll) return;
+    var i, el;
+    var btns = root.querySelectorAll('button');
+    for (i = 0; i < btns.length; i++) if (isAccountButton(btns[i])) guardButton(btns[i]);
+    if (root.nodeName === 'BUTTON' && isAccountButton(root)) guardButton(root);
+    // querySelectorAll misses the root itself: check it too (menus and
+    // popovers are often appended as the added node).
+    var heads = root.querySelectorAll(HEADER_SEL);
+    for (i = 0; i < heads.length; i++) stripHeader(heads[i]);
+    if (root.matches && root.matches(HEADER_SEL)) stripHeader(root);
+    var pops = root.querySelectorAll(POPOVER_SEL);
+    for (i = 0; i < pops.length; i++) relabelPopover(pops[i]);
+    if (root.matches && root.matches(POPOVER_SEL)) relabelPopover(root);
+    var logos = root.querySelectorAll(LOGO_SEL);
+    for (i = 0; i < logos.length; i++) logos[i].remove();
+    if (root.matches && root.matches(LOGO_SEL)) root.remove();
+  }
+
+  function init() {
+    sanitizeTree(document);
+    new MutationObserver(function (muts) {
+      for (var i = 0; i < muts.length; i++) {
+        var added = muts[i].addedNodes;
+        for (var j = 0; j < added.length; j++) {
+          var n = added[j];
+          if (n && n.nodeType === 1) sanitizeTree(n);
+        }
+      }
+    }).observe(document.documentElement, { childList: true, subtree: true });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+<script type="module">
+@@module@@
+</script>
+  <style data-app-css>
+@@css@@
+</style>
+</head>
+<body>
+  <div id="app" aria-busy="true"></div>
+  <div id="live-region" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
